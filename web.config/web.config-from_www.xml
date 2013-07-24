@@ -1,0 +1,12 @@
+<!-- Paste this code in web.config before ALL rules and change <domain.ru> on needed domain name -->
+<rule name="Main Page" stopProcessing="true">
+    <match url="^home$" ignoreCase="false" />
+    <action type="Redirect" url="http://domain.ru/" redirectType="Permanent" />
+</rule>
+<rule name="From WWW" stopProcessing="true">
+<match url="(.*)" />
+<conditions logicalGrouping="MatchAny">
+    <add input="{HTTP_HOST}" pattern="www.domain.ru" ignoreCase="false" />
+</conditions>
+<action type="Redirect" url="http://domain.ru/{R:1}" redirectType="Permanent" />
+</rule>

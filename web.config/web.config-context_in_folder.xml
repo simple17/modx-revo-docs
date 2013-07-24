@@ -1,0 +1,19 @@
+<!-- Paste this code in web.config before rule "ModX IIS7 Rule 2 (By Simon Fraser)" and change <context> on needed context name -->
+<rule name="ModX IIS7 Context Rule 1 (By Zarema)" stopProcessing="true">
+    <match url="^context/assets/(.*)$" ignoreCase="false" />
+    <action type="Redirect" url="assets/{R:1}" statusCode="301" />
+</rule>
+
+<rule name="ModX IIS7 Context Rule 2 (By Zarema)" stopProcessing="true">
+<match url="^context/template/(.*)$" ignoreCase="false" />
+<action type="Redirect" url="template/{R:1}" statusCode="301" />
+</rule>
+
+<rule name="ModX IIS7 Context Rule 3 (By Zarema)" stopProcessing="true">
+<match url="^context/(.*)$" ignoreCase="false" />
+<conditions logicalGrouping="MatchAll">
+    <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" pattern="" ignoreCase="false" />
+    <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" pattern="" ignoreCase="false" />
+</conditions>
+<action type="Rewrite" url="context/index.php?q={R:1}" appendQueryString="true" />
+</rule>
