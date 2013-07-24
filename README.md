@@ -36,39 +36,7 @@
 
 ## Настройка дружественных URL
 
-1. Создать в корне сайта файл **web.config** с кодом
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <system.webServer>
-        <rewrite>
-            <rules>
-                <rule name="ModX IIS7 Rule 1 (By Simon Fraser)" stopProcessing="true">
-                    <match url=".*" ignoreCase="false" />
-                    <conditions logicalGrouping="MatchAll">
-                        <add input="{HTTP_USER_AGENT}" pattern="^.*internal\ dummy\ connection.*$" />
-                    </conditions>
-                    <action type="CustomResponse" statusCode="403" statusReason="Forbidden" statusDescription="Forbidden" />
-                </rule>
-                <rule name="ModX IIS7 Rule 2 (By Simon Fraser)" stopProcessing="true">
-                    <match url="^(connectors|core|manager|assets)" ignoreCase="false" />
-                    <action type="None" />
-                </rule>
-                <rule name="ModX IIS7 Rule 3 (By Simon Fraser)" stopProcessing="true">
-                    <match url="^(.*)$" ignoreCase="false" />
-                    <conditions logicalGrouping="MatchAll">
-                        <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" pattern="" ignoreCase="false" />
-                        <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" pattern="" ignoreCase="false" />
-                    </conditions>
-                    <action type="Rewrite" url="index.php?q={R:1}" appendQueryString="true" />
-                </rule>
-            </rules>
-        </rewrite>
-    </system.webServer>
-</configuration>
-```
-
+1. Создать в корне сайта файл **[web.config](web.config/web.config)**
 2. Установить пакет **Translit** (для автоматической генерации псевдонимов из заголовков)
 3. Изменить настройки сайта:
     * *automatic_alias* - **ДА** (Автоматически генирировать псевдоним)
