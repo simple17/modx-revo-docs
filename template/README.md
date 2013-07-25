@@ -69,9 +69,21 @@
 ### Footer
 	<div class="row">
 		<div class="span12">
-			<p>© [[#ID-РЕСУРСА-С-НАСТРОЙКАМИ.tv.settings_company]] 2013</p>
+			[[$Organization]]
 		</div>
 	</div>
 ### AfterFooter
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+### Organization
+	<div itemscope itemtype="http://schema.org/Organization">
+		<p ><span itemprop="name">© [[#ID-РЕСУРСА-С-НАСТРОЙКАМИ.tv.settings_company]]</span> 2013</>
+		<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+			<p><span itemprop="addressCountry">[[#ID-РЕСУРСА-С-НАСТРОЙКАМИ.tv.settings_address_country]]</span>, <span itemprop="addressLocality">[[#ID-РЕСУРСА-С-НАСТРОЙКАМИ.tv.settings_address_city]]</span></p>
+			<p itemprop="streetAddress">[[#ID-РЕСУРСА-С-НАСТРОЙКАМИ.tv.settings_address_street]]</p>
+		</div>
+		<meta itemprop="logo" content="[[#ID-РЕСУРСА-С-НАСТРОЙКАМИ.tv.settings_logo]]">
+		<p>Тел.:<span itemprop="telephone">[[#ID-РЕСУРСА-С-НАСТРОЙКАМИ.tv.settings_phone]]</span></p>
+		<p>E-mail:<a href="mailto:[[#ID-РЕСУРСА-С-НАСТРОЙКАМИ.tv.settings_email]]"><span itemprop="email">[[#ID-РЕСУРСА-С-НАСТРОЙКАМИ.tv.settings_email]]</span></a></p>
+	</div>
+	
