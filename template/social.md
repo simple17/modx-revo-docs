@@ -5,9 +5,9 @@
 ### Дополнительные параметры
 
 Создать дополнительные параметы для шаблона "Пользовательские настройки".
-*settings_social_fb
-*settings_social_vk
-*settings_social_tw
+* settings_social_fb
+* settings_social_vk
+* settings_social_tw
 *Список можно дополнить*
 
 ### Чанк Social
